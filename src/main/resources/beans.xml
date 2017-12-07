@@ -1,0 +1,82 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	xmlns:cache="http://www.springframework.org/schema/cache" xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:amq="http://activemq.apache.org/schema/core" xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xmlns:jms="http://www.springframework.org/schema/jms" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/websocket
+http://www.springframework.org/schema/websocket/spring-websocket.xsd
+http://www.springframework.org/schema/mvc
+http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/data/mongo       
+http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd   
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx.xsd
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/cache
+http://www.springframework.org/schema/cache/spring-cache.xsd
+http://activemq.apache.org/schema/core 
+http://activemq.apache.org/schema/core/activemq-core.xsd
+http://www.springframework.org/schema/jms 
+http://www.springframework.org/schema/jms/spring-jms.xsd
+http://www.springframework.org/schema/util
+http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+	<util:properties id="db" location="classpath:MySQL.properties" />
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="#{db['driverClass']}"></property>
+		<property name="jdbcUrl" value="#{db['jdbcUrl']}"></property>
+		<property name="user" value="#{db['user']}"></property>
+		<property name="password" value="#{db['password']}"></property>
+	</bean>
+	
+	<!-- 保存共有配置属性 -->
+	<util:properties id="prop" location="classpath:public.properties"></util:properties>
+	<!-- <bean id="prop" class="org.springframework.beans.factory.config.PropertiesFactoryBean"> 
+		<property name="locations"> <array> <value>classpath:public.propetties</value> 
+		</array> </property> </bean> -->
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
+	</bean>
+
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+
+	<tx:advice id="advice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="query*" propagation="REQUIRED" />
+			<tx:method name="get*" propagation="REQUIRED" />
+			<tx:method name="*" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config>
+		<!-- -->
+		<aop:pointcut
+			expression="execution(* com.wph.service.impl.*.*(..))  or execution(* com.wph.connect.service.solve.*.*(..)) or execution(* com.wph.entities.*.*(..))"
+			id="pointcut" />
+		<aop:advisor advice-ref="advice" pointcut-ref="pointcut" />
+	</aop:config>
+	<context:component-scan base-package="com.wph.." />
+
+
+</beans>

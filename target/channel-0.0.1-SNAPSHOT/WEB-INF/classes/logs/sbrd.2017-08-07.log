@@ -1,0 +1,149 @@
+2017-08-07 16:17:09 [org.springframework.web.context.ContextLoader]-[INFO] [localhost-startStop-1] (ContextLoader.java:307) ->Root WebApplicationContext: initialization started 
+2017-08-07 16:17:09 [org.springframework.web.context.support.XmlWebApplicationContext]-[INFO] [localhost-startStop-1] (AbstractApplicationContext.java:578) ->Refreshing Root WebApplicationContext: startup date [Mon Aug 07 16:17:09 CST 2017]; root of context hierarchy 
+2017-08-07 16:17:09 [org.springframework.beans.factory.xml.XmlBeanDefinitionReader]-[INFO] [localhost-startStop-1] (XmlBeanDefinitionReader.java:317) ->Loading XML bean definitions from class path resource [beans.xml] 
+2017-08-07 16:17:10 [org.springframework.beans.factory.config.PropertiesFactoryBean]-[INFO] [localhost-startStop-1] (PropertiesLoaderSupport.java:172) ->Loading properties file from class path resource [MySQL.properties] 
+2017-08-07 16:17:10 [com.mchange.v2.log.MLog]-[INFO] [MLog-Init-Reporter] (MLog.java:124) ->MLog clients using log4j logging. 
+2017-08-07 16:17:11 [com.mchange.v2.c3p0.C3P0Registry]-[INFO] [localhost-startStop-1] (C3P0Registry.java:248) ->Initializing c3p0-0.9.5.1 [built 16-June-2015 00:06:36 -0700; debug? true; trace: 10] 
+2017-08-07 16:17:11 [org.springframework.beans.factory.config.PropertiesFactoryBean]-[INFO] [localhost-startStop-1] (PropertiesLoaderSupport.java:172) ->Loading properties file from class path resource [public.properties] 
+2017-08-07 16:17:12 [org.hibernate.annotations.common.Version]-[INFO] [localhost-startStop-1] (JavaReflectionManager.java:66) ->HCANN000001: Hibernate Commons Annotations {4.0.5.Final} 
+2017-08-07 16:17:12 [org.hibernate.Version]-[INFO] [localhost-startStop-1] (Version.java:54) ->HHH000412: Hibernate Core {4.3.11.Final} 
+2017-08-07 16:17:12 [org.hibernate.cfg.Environment]-[INFO] [localhost-startStop-1] (Environment.java:239) ->HHH000206: hibernate.properties not found 
+2017-08-07 16:17:12 [org.hibernate.cfg.Environment]-[INFO] [localhost-startStop-1] (Environment.java:346) ->HHH000021: Bytecode provider name : javassist 
+2017-08-07 16:17:12 [org.hibernate.cfg.Configuration]-[INFO] [localhost-startStop-1] (Configuration.java:2111) ->HHH000044: Configuring from URL: file:/F:/apache-tomcat-7.0.77/webapps/channel/WEB-INF/classes/hibernate.cfg.xml 
+2017-08-07 16:17:12 [org.springframework.web.context.support.XmlWebApplicationContext]-[WARN] [localhost-startStop-1] (AbstractApplicationContext.java:546) ->Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [beans.xml]: Invocation of init method failed; nested exception is org.hibernate.MappingException: Unable to load class [ com.wph.entities.Administrator] declared in Hibernate configuration <mapping/> entry 
+2017-08-07 16:17:12 [org.springframework.web.context.ContextLoader]-[ERROR] [localhost-startStop-1] (ContextLoader.java:353) ->Context initialization failed 
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [beans.xml]: Invocation of init method failed; nested exception is org.hibernate.MappingException: Unable to load class [ com.wph.entities.Administrator] declared in Hibernate configuration <mapping/> entry
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1578)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:545)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:753)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:839)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:538)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:446)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:328)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:107)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:5118)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5634)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:145)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:899)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:875)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:652)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1260)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:2002)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.hibernate.MappingException: Unable to load class [ com.wph.entities.Administrator] declared in Hibernate configuration <mapping/> entry
+	at org.hibernate.cfg.Configuration.parseMappingElement(Configuration.java:2281)
+	at org.hibernate.cfg.Configuration.parseSessionFactory(Configuration.java:2229)
+	at org.hibernate.cfg.Configuration.doConfigure(Configuration.java:2209)
+	at org.hibernate.cfg.Configuration.doConfigure(Configuration.java:2162)
+	at org.hibernate.cfg.Configuration.configure(Configuration.java:2113)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBean.afterPropertiesSet(LocalSessionFactoryBean.java:348)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1637)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1574)
+	... 25 more
+Caused by: java.lang.ClassNotFoundException: com.wph.entities.Administrator
+	at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1892)
+	at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1735)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:264)
+	at org.hibernate.internal.util.ReflectHelper.classForName(ReflectHelper.java:193)
+	at org.hibernate.cfg.Configuration.parseMappingElement(Configuration.java:2278)
+	... 32 more
+2017-08-07 17:17:12 [org.springframework.web.context.ContextLoader]-[INFO] [localhost-startStop-1] (ContextLoader.java:307) ->Root WebApplicationContext: initialization started 
+2017-08-07 17:17:12 [org.springframework.web.context.support.XmlWebApplicationContext]-[INFO] [localhost-startStop-1] (AbstractApplicationContext.java:578) ->Refreshing Root WebApplicationContext: startup date [Mon Aug 07 17:17:12 CST 2017]; root of context hierarchy 
+2017-08-07 17:17:12 [org.springframework.beans.factory.xml.XmlBeanDefinitionReader]-[INFO] [localhost-startStop-1] (XmlBeanDefinitionReader.java:317) ->Loading XML bean definitions from class path resource [beans.xml] 
+2017-08-07 17:17:13 [org.springframework.beans.factory.config.PropertiesFactoryBean]-[INFO] [localhost-startStop-1] (PropertiesLoaderSupport.java:172) ->Loading properties file from class path resource [MySQL.properties] 
+2017-08-07 17:17:14 [com.mchange.v2.log.MLog]-[INFO] [MLog-Init-Reporter] (MLog.java:124) ->MLog clients using log4j logging. 
+2017-08-07 17:17:14 [com.mchange.v2.c3p0.C3P0Registry]-[INFO] [localhost-startStop-1] (C3P0Registry.java:248) ->Initializing c3p0-0.9.5.1 [built 16-June-2015 00:06:36 -0700; debug? true; trace: 10] 
+2017-08-07 17:17:14 [org.springframework.beans.factory.config.PropertiesFactoryBean]-[INFO] [localhost-startStop-1] (PropertiesLoaderSupport.java:172) ->Loading properties file from class path resource [public.properties] 
+2017-08-07 17:17:15 [org.hibernate.annotations.common.Version]-[INFO] [localhost-startStop-1] (JavaReflectionManager.java:66) ->HCANN000001: Hibernate Commons Annotations {4.0.5.Final} 
+2017-08-07 17:17:15 [org.hibernate.Version]-[INFO] [localhost-startStop-1] (Version.java:54) ->HHH000412: Hibernate Core {4.3.11.Final} 
+2017-08-07 17:17:15 [org.hibernate.cfg.Environment]-[INFO] [localhost-startStop-1] (Environment.java:239) ->HHH000206: hibernate.properties not found 
+2017-08-07 17:17:15 [org.hibernate.cfg.Environment]-[INFO] [localhost-startStop-1] (Environment.java:346) ->HHH000021: Bytecode provider name : javassist 
+2017-08-07 17:17:15 [org.hibernate.cfg.Configuration]-[INFO] [localhost-startStop-1] (Configuration.java:2111) ->HHH000044: Configuring from URL: file:/F:/apache-tomcat-7.0.77/webapps/channel/WEB-INF/classes/hibernate.cfg.xml 
+2017-08-07 17:17:15 [org.hibernate.cfg.Configuration]-[INFO] [localhost-startStop-1] (Configuration.java:2216) ->HHH000041: Configured SessionFactory: null 
+2017-08-07 17:17:15 [com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource]-[INFO] [localhost-startStop-1] (AbstractPoolBackedDataSource.java:527) ->Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 1b60ska9p1g5pwnd4m5jj1|7fdeeccf, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 1b60ska9p1g5pwnd4m5jj1|7fdeeccf, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/access, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ] 
+2017-08-07 17:17:16 [org.hibernate.dialect.Dialect]-[INFO] [localhost-startStop-1] (Dialect.java:145) ->HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect 
+2017-08-07 17:17:16 [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator]-[INFO] [localhost-startStop-1] (TransactionFactoryInitiator.java:62) ->HHH000399: Using default transaction strategy (direct JDBC transactions) 
+2017-08-07 17:17:16 [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory]-[INFO] [localhost-startStop-1] (ASTQueryTranslatorFactory.java:47) ->HHH000397: Using ASTQueryTranslatorFactory 
+2017-08-07 17:17:17 [org.springframework.orm.hibernate4.HibernateTransactionManager]-[INFO] [localhost-startStop-1] (HibernateTransactionManager.java:360) ->Using DataSource [com.mchange.v2.c3p0.ComboPooledDataSource[ identityToken -> 1b60ska9p1g5pwnd4m5jj1|7fdeeccf, dataSourceName -> 1b60ska9p1g5pwnd4m5jj1|7fdeeccf ]] of Hibernate SessionFactory for HibernateTransactionManager 
+2017-08-07 17:17:26 [org.springframework.web.context.support.XmlWebApplicationContext]-[WARN] [localhost-startStop-1] (AbstractApplicationContext.java:546) ->Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'indexDao': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'LuceneService' defined in file [F:\apache-tomcat-7.0.77\webapps\channel\WEB-INF\classes\com\wph\lucene\LuceneServiceImpl.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.wph.lucene.LuceneServiceImpl]: Constructor threw exception; nested exception is java.lang.Error: 无法解析的编译问题：
+	无法解析导入 org.lionsoul.jcseg.elasticsearch
+ 
+2017-08-07 17:17:27 [org.springframework.web.context.ContextLoader]-[ERROR] [localhost-startStop-1] (ContextLoader.java:353) ->Context initialization failed 
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'indexDao': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'LuceneService' defined in file [F:\apache-tomcat-7.0.77\webapps\channel\WEB-INF\classes\com\wph\lucene\LuceneServiceImpl.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.wph.lucene.LuceneServiceImpl]: Constructor threw exception; nested exception is java.lang.Error: 无法解析的编译问题：
+	无法解析导入 org.lionsoul.jcseg.elasticsearch
+
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessPropertyValues(CommonAnnotationBeanPostProcessor.java:311)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1214)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:543)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:772)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:839)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:538)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:446)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:328)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:107)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:5118)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5634)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:145)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:899)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:875)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:652)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1260)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:2002)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'LuceneService' defined in file [F:\apache-tomcat-7.0.77\webapps\channel\WEB-INF\classes\com\wph\lucene\LuceneServiceImpl.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.wph.lucene.LuceneServiceImpl]: Constructor threw exception; nested exception is java.lang.Error: 无法解析的编译问题：
+	无法解析导入 org.lionsoul.jcseg.elasticsearch
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1105)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1050)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:510)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1192)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1116)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1014)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.autowireResource(CommonAnnotationBeanPostProcessor.java:508)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.getResource(CommonAnnotationBeanPostProcessor.java:486)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor$ResourceElement.getResourceToInject(CommonAnnotationBeanPostProcessor.java:615)
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:169)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessPropertyValues(CommonAnnotationBeanPostProcessor.java:308)
+	... 26 more
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.wph.lucene.LuceneServiceImpl]: Constructor threw exception; nested exception is java.lang.Error: 无法解析的编译问题：
+	无法解析导入 org.lionsoul.jcseg.elasticsearch
+
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:163)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:89)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1098)
+	... 42 more
+Caused by: java.lang.Error: 无法解析的编译问题：
+	无法解析导入 org.lionsoul.jcseg.elasticsearch
+
+	at com.wph.lucene.LuceneServiceImpl.<init>(LuceneServiceImpl.java:13)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:147)
+	... 44 more

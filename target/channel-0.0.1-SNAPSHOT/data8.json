@@ -1,0 +1,10 @@
+{"total":4,"rows":[
+{"yesterday":"01:00-03:00","yesterdayvisit":"1个","yesterdaysuccess":"1个","yesterdayfalse":"0个","yesterdaywindow":"2个","yesterdaysuppose":"1个"},
+{"yesterday":"04:00-06:00","yesterdayvisit":"2个","yesterdaysuccess":"2个","yesterdayfalse":"0个","yesterdaywindow":"2个","yesterdaysuppose":"1个"},
+{"yesterday":"07:00-09:00","yesterdayvisit":"6个","yesterdaysuccess":"5个","yesterdayfalse":"1个","yesterdaywindow":"2个","yesterdaysuppose":"2个"},
+{"yesterday":"10:00-12:00","yesterdayvisit":"25个","yesterdaysuccess":"22个","yesterdayfalse":"3个","yesterdaywindow":"5个","yesterdaysuppose":"6个"},
+{"yesterday":"13:00-15:00","yesterdayvisit":"27个","yesterdaysuccess":"23个","yesterdayfalse":"4个","yesterdaywindow":"5个","yesterdaysuppose":"6个"},
+{"yesterday":"16:00-18:00","yesterdayvisit":"35个","yesterdaysuccess":"28个","yesterdayfalse":"7个","yesterdaywindow":"5个","yesterdaysuppose":"8个"},
+{"yesterday":"19:00-21:00","yesterdayvisit":"23个","yesterdaysuccess":"20个","yesterdayfalse":"3个","yesterdaywindow":"5个","yesterdaysuppose":"5个"},
+{"yesterday":"22:00-00:00","yesterdayvisit":"6个","yesterdaysuccess":"6个","yesterdayfalse":"0个","yesterdaywindow":"5个","yesterdaysuppose":"2个"}
+]}

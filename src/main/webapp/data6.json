@@ -1,0 +1,7 @@
+{"total":4,"rows":[
+	{"groupid":"1","groupname":"生活管理组","groupcategory":"生活类","groupremark":"生活相关方面的客服咨询"},
+	{"groupid":"2","groupname":"产品售后组","groupcategory":"产品类","groupremark":"产品售后相关方面的客服咨询"},
+	{"groupid":"3","groupname":"产品售前组","groupcategory":"产品类","groupremark":"产品售前相关方面的客服咨询及新品推荐"},
+	{"groupid":"4","groupname":"班长组","groupcategory":"管理类","groupremark":"可以解答所有咨询"}
+				
+]}
